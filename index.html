@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Industries</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;700&family=Krona+One&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="loader">
+        <img
+            src="images/atlasindustrieslogo.svg"
+            alt="Atlas Industries Loader"
+            class="loader-logo"
+        >
+    </div>
+
+    <div id="main-content">
+
+        <!-- =====================================================
+             HERO
+             Figma source: Desktop - 4 / 1440 × 923
+             ===================================================== -->
+        <section class="hero">
+
+            <img
+                src="images/icon1.svg"
+                alt="Atlas Industries"
+                class="hero-logo"
+            >
+
+            <div class="hero-overlay"></div>
+
+            <nav class="hero-menu">
+                <a href="#">FAVOURITES</a>
+            </nav>
+
+            <div id="typewriter-header">
+                <h1 class="typewriter-h1">
+                    Atlas Industries
+                </h1>
+
+                <p class="typewriter-p">
+                    A Tasting Session
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ARCHIVE / FEATURED COLLECTION
+             Figma source: Desktop - 5 / 1440 × 2019
+             ===================================================== -->
+        <section class="archive-intro">
+
+            <div class="archive-lines" aria-hidden="true">
+                <span class="accent-line line-1"></span>
+                <span class="accent-line line-2"></span>
+                <span class="accent-line line-3"></span>
+                <span class="accent-line line-4"></span>
+
+                <span class="divider-line divider-h"></span>
+                <span class="divider-line divider-v"></span>
+            </div>
+
+
+            <div class="archive-intro-top">
+
+                <div class="archive-text">
+                    <h2 class="atlas-heading">
+                        All around the world.<br>
+                        Preserved. Recorded. Remembered.
+                    </h2>
+
+                    <p>
+                        Atlas Industries is an archive of things that refuse to disappear.<br>
+                        We collect objects, images, garments, documents, and ideas that exist somewhere between utility and memory.<br>
+                        Things built with purpose. Things left behind. Things that have outlived the moment that created them.
+                    </p>
+                </div>
+
+
+                <!-- Wax mannequin: exact Figma frame + crop -->
+                <div class="archive-statue">
+                    <img
+                        src="images/waxstatue.jpg"
+                        alt="Wax mannequin display"
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- Five photographs: each frame is independently positioned.
+                 Inner image sizes reproduce the Figma image-fill offsets. -->
+            <div class="archive-images">
+
+                <div class="archive-image-frame img-1">
+                    <img
+                        src="images/rickjacket25.jpg"
+                        alt="Rick Owens SS25 Hollywood runway hooded micro stooges in black waxy alligator"
+                    >
+                </div>
+
+                <div class="archive-image-frame img-2">
+                    <img
+                        src="images/backtrackleatherjacker.jpg"
+                        alt="Backtrack leather jacket"
+                    >
+                </div>
+
+                <div class="archive-image-frame img-3">
+                    <img
+                        src="images/generalexperiment.jpg"
+                        alt="IG general experiment"
+                    >
+                </div>
+
+                <div class="archive-image-frame img-4">
+                    <img
+                        src="images/rickcroppedjacket.jpg"
+                        alt="Rick Owens cropped jacket"
+                    >
+                </div>
+
+                <div class="archive-image-frame img-5">
+                    <img
+                        src="images/goatjacket.jpg"
+                        alt="Archive piece"
+                    >
+                </div>
+
+            </div>
+
+
+            <a href="#" class="featured-cta">
+                <span class="featured-cta-line"></span>
+                <span class="featured-cta-text">VIEW FEATURED COLLECTION</span>
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M7 17L17 7M17 7H8M17 7V16"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </a>
+
+        </section>
+
+
+        <!-- =====================================================
+             INTERACTIVE INDEX + END CREDITS
+             Figma source: Desktop - 7 / 1440 × 1934
+             ===================================================== -->
+        <section class="interactive-index">
+
+            <img
+                src="images/mogged.jpg"
+                alt="Runway show still"
+                class="index-feature-img"
+            >
+
+
+            <div class="index-container">
+
+                <button
+                    type="button"
+                    class="square menu-square view-more"
+                    aria-expanded="false"
+                    aria-controls="archive-menu"
+                >
+                    <span>VIEW MORE</span>
+                </button>
+
+                <div id="archive-menu">
+
+                    <a
+                        href="archive.html"
+                        class="square menu-square archive"
+                    >
+                        <span>ARCHIVE</span>
+                    </a>
+
+                    
+
+                    <a
+                        href="research.html"
+                        class="square menu-square research"
+                    >
+                        <span>RESEARCH</span>
+                    </a>
+
+                    <a
+                        href="observations.html"
+                        class="square menu-square observations"
+                    >
+                        <span>OBSERVATIONS</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <footer class="site-footer">
+
+                <div class="footer-stats">
+                    <p>
+                        Objects Preserved        127  <br>:  
+                        Designers Referenced     31<br>
+                        Collections              08      <br>   
+                        Documents Indexed        462    <br>
+                        Last Update              16.06.2026<br>
+                    </p>
+                </div>
+
+                <div class="footer-contact">
+                    <p><a href="mailto:archives@atlasindustries">archives@atlasindustries</a></p>
+                    <p><a href="https://instagram.com/heavyartillery" target="_blank" rel="noopener">Instagram - Heavyartillery</a></p>
+                </div>
+
+            </footer>
+
+        </section>
+
+    </div>
+
+
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            const hero = document.querySelector('.hero');
+
+            setTimeout(() => {
+                loader.style.opacity = '0';
+
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    hero.classList.add('start-typing');
+                }, 500);
+            }, 2000);
+        });
+
+
+        const container = document.querySelector('.index-container');
+        const button = document.querySelector('.view-more');
+        const menu = document.getElementById('archive-menu');
+
+        if (container && button && menu) {
+            button.addEventListener('click', () => {
+                const isOpen = container.classList.toggle('open');
+
+                button.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+    </script>
+
+</body>
+</html>

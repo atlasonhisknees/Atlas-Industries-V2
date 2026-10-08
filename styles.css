@@ -1,0 +1,1351 @@
+/* =========================================================
+   ATLAS INDUSTRIES V2.3
+   Figma-calibrated desktop implementation
+
+   Master desktop frames:
+     Hero:     1440 × 923
+     Archive:  1440 × 2019
+     Index:    1440 × 1934
+
+   Desktop uses the Figma frame as the coordinate system.
+   Mobile switches to a separate readable composition.
+   ========================================================= */
+
+
+/* =========================================================
+   TYPEFACES
+   ========================================================= */
+
+@font-face{
+    font-family:'Azonix';
+    src:url('fonts/Azonix.woff2') format('woff2'),
+        url('fonts/Azonix.otf') format('opentype');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+
+    background:#1c1c1c;
+    color:#ffffff;
+
+    overflow-x:hidden;
+}
+
+body{
+    font-family:sans-serif;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    background:#1c1c1c;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+    transition:opacity .5s ease;
+}
+
+.loader-logo{
+    width:90vw;
+    height:90vh;
+
+    object-fit:contain;
+
+    animation:pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse{
+    0%{opacity:.4;}
+    50%{opacity:1;}
+    100%{opacity:.4;}
+}
+
+
+/* =========================================================
+   HERO — 1440 × 923
+   ========================================================= */
+
+.hero{
+    position:relative;
+
+    width:100%;
+    height:auto;
+    aspect-ratio:1440 / 923;
+
+    overflow:hidden;
+
+    background-image:url('images/newhero.jpg');
+    background-repeat:no-repeat;
+
+    /*
+      Figma image:
+      x=-33, y≈0, w=1550.389, h=940.759
+    */
+    background-size:107.6659% 101.925%;
+    background-position:-2.2917vw -0.02vw;
+
+    display:block;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    top:-40%;
+    left:-30%;
+
+    width:120%;
+    height:180%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.08) 0%,
+            rgba(255,255,255,0) 65%
+        );
+
+    transform:rotate(-30deg);
+
+    pointer-events:none;
+    z-index:1;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(5,5,5,.45);
+
+    z-index:1;
+}
+
+
+/* Hero logo — Figma x=120 y=36 w=57 h=37 */
+.hero-logo{
+    position:absolute;
+
+    left:8.3333%;
+    top:3.8992%;
+
+    width:3.9583vw;
+    height:auto;
+
+    z-index:3;
+}
+
+
+/* Hero nav — Figma right content sits inside the 1200px frame */
+.hero-menu{
+    position:absolute;
+
+    top:3.8992%;
+    right:8.3333%;
+
+    z-index:3;
+}
+
+.hero-menu a{
+    color:#ffffff;
+    opacity:.76;
+
+    text-decoration:none;
+
+    font-family:'Krona One',sans-serif;
+    font-size:.9722vw;
+
+    line-height:normal;
+
+    letter-spacing:-.0389vw;
+    text-transform:uppercase;
+}
+
+
+/* Hero title group — Figma x=120 y=332 w=821 */
+#typewriter-header{
+    position:absolute;
+
+    left:8.3333%;
+    top:35.9697%;
+
+    width:57.0139%;
+
+    z-index:3;
+    
+}
+
+.typewriter-h1{
+    width:100%;
+    height:13.5417vw;
+
+    margin:0;
+
+    display:flex;
+    align-items:center;
+
+    opacity:0;
+    transform:translateY(40px);
+
+    font-family:'Azonix','Oxanium',sans-serif;
+
+    font-size:6.6667vw;
+    line-height:6.5972vw;
+
+    letter-spacing:-.3333vw;
+    text-transform:uppercase;
+
+    background:linear-gradient(
+        90deg,
+        #c0c0c0,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    white-space: normal
+   
+}
+
+.typewriter-p{
+    width:100%;
+    height:2.3611vw;
+
+    margin:0;
+
+    display:flex;
+    align-items:center;
+
+    opacity:0;
+    transform:translateY(20px);
+
+    color:#d3d1ce;
+
+    font-family:'Krona One','Oxanium',sans-serif;
+
+    font-size:1.25vw;
+    line-height:normal;
+
+    letter-spacing:.0375vw;
+}
+
+
+/* Existing reveal animation */
+.hero.start-typing .typewriter-h1{
+    animation:reveal-title 1.2s ease forwards;
+}
+
+.hero.start-typing .typewriter-p{
+    animation:reveal-subtitle 1s ease forwards;
+    animation-delay:.5s;
+}
+
+@keyframes reveal-title{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes reveal-subtitle{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ARCHIVE — 1440 × 2019
+   ========================================================= */
+
+.archive-intro{
+    position:relative;
+
+    width:100%;
+    aspect-ratio:1440 / 2019;
+
+    min-height:0;
+    height:auto;
+
+    overflow:hidden;
+
+    background:#1c1c1c;
+}
+
+
+/* All archive content shares this exact coordinate plane */
+.archive-intro-top{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+}
+
+
+/* Archive heading + body */
+.archive-text{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:2;
+}
+
+.archive-text h2{
+    position:absolute;
+
+    left:5%;
+    top:9.5592%;
+
+    width:63.4028%;
+
+    margin:0;
+
+    font-family:'Azonix',sans-serif;
+    font-size:2.2222vw;
+    line-height:normal;
+    font-weight:400;
+
+    letter-spacing:0;
+
+    color:#f1f1f1;
+
+    text-align:left;
+}
+
+.archive-text p{
+    position:absolute;
+
+    left:4.7222%;
+    top:16.741%;
+
+    width:55.5556%;
+
+    margin:0;
+
+    font-family:'Krona One',sans-serif;
+    font-size:1.1111vw;
+    line-height:1.9444vw;
+
+    letter-spacing:-.0111vw;
+
+    color:#d3d1ce;
+    opacity:.92;
+
+    text-align:left;
+}
+
+
+/* ---------------------------------------------------------
+   WAX MANNEQUIN
+
+   Figma:
+     frame x=219 y=172 w=414 h=473
+     image fill x=-0.02% y=-32.56%
+     image size 100.03% × 155.6%
+   --------------------------------------------------------- */
+
+.archive-statue{
+    position:absolute;
+
+    right:3.45%;
+    top:8.5191%;
+
+    width:28.75%;
+    height:23.4274%;
+
+    overflow:hidden;
+
+    z-index:2;
+}
+
+.archive-statue img{
+    position:absolute;
+
+    left:-.02%;
+    top:-32.56%;
+
+    width:100.03%;
+    height:155.6%;
+
+    max-width:none;
+
+    object-fit:fill;
+}
+
+
+/* ---------------------------------------------------------
+   FIVE IMAGE FIELD
+
+   Exact Figma frame coordinates are used below.
+   No grid.
+   --------------------------------------------------------- */
+
+.archive-images{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:1;
+}
+
+.archive-image-frame{
+    position:absolute;
+
+    overflow:hidden;
+
+    margin:0;
+    padding:0;
+
+    background:transparent;
+}
+
+.archive-image-frame img{
+    position:absolute;
+
+    display:block;
+
+    max-width:none;
+
+    margin:0;
+    padding:0;
+}
+
+
+/* Image 1 — Figma 48,769 → 318 × 482 */
+.img-1{
+    left:3.3333%;
+    top:38.0882%;
+
+    width:22.0833%;
+    height:23.8732%;
+}
+
+.img-1 img{
+    left:-2.52%;
+    top:-.03%;
+
+    width:102.52%;
+    height:100.06%;
+}
+
+
+/* Image 2 — Figma 461,769 → 318 × 482 */
+.img-2{
+    left:32.0139%;
+    top:38.0882%;
+
+    width:22.0833%;
+    height:23.8732%;
+}
+
+.img-2 img{
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+/* Image 3 — Figma 1069,767 → 319 × 486 */
+.img-3{
+    left:74.2361%;
+    top:37.9891%;
+
+    width:22.1528%;
+    height:24.0713%;
+}
+
+.img-3 img{
+    left:-8.54%;
+    top:0;
+
+    width:115.51%;
+    height:100.01%;
+}
+
+
+/* Image 4 — Figma 608,1358 → 317 × 482 */
+.img-4{
+    left:42.2222%;
+    top:67.261%;
+
+    width:22.0139%;
+    height:23.8732%;
+}
+
+.img-4 img{
+    left:-6.31%;
+    top:-.05%;
+
+    width:114.2%;
+    height:100.1%;
+}
+
+
+/* Image 5 — Figma 1069,1358 → 319 × 482 */
+.img-5{
+    left:74.2361%;
+    top:67.261%;
+
+    width:22.1528%;
+    height:23.8732%;
+}
+
+.img-5 img{
+    left:-.05%;
+    top:0;
+
+    width:100.73%;
+    height:100%;
+}
+
+
+/* ---------------------------------------------------------
+   ARCHIVE STRUCTURAL LINES
+
+   Coordinates derived from the actual Figma line wrappers.
+   --------------------------------------------------------- */
+
+.archive-lines{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+    z-index:0;
+}
+
+.accent-line,
+.divider-line{
+    position:absolute;
+
+    display:block;
+
+    height:1px;
+
+    background:rgba(255,255,255,.12);
+
+    transform-origin:center center;
+}
+
+
+/* Horizontal divider — Figma x=68 y=737 w=1258 */
+.divider-h{
+    left:4.7222%;
+    top:36.5032%;
+
+    width:87.3611%;
+
+    transform:none;
+}
+
+
+/* Vertical divider — Figma x=998 y=674 h=1258 */
+.divider-v{
+    left:69.3056%;
+    top:33.3829%;
+
+    width:1px;
+    height:62.3081%;
+
+    background:rgba(255,255,255,.08);
+
+    transform:none;
+}
+
+
+/*
+  Diagonal 1:
+  Figma wrapper center = (320.5, 674)
+  line length = 657.408
+  rotation = -40.62deg
+*/
+.line-1{
+    left:-.5694%;
+    top:33.3829%;
+
+    width:45.6533%;
+
+    transform:rotate(-40.62deg);
+}
+
+
+/*
+  Diagonal 2:
+  Figma wrapper center = (918.974, 166.565)
+  line length = 518.978
+  rotation = -39.93deg
+*/
+.line-2{
+    left:45.7976%;
+    top:8.2515%;
+
+    width:36.0401%;
+
+    transform:rotate(-39.93deg);
+}
+
+
+/*
+  Diagonal 3:
+  Figma wrapper center = (974.5, 933.5)
+  line length = 270.485
+  rotation = -42deg
+*/
+.line-3{
+    left:58.2818%;
+    top:46.2377%;
+
+    width:18.7837%;
+
+    transform:rotate(-42deg);
+}
+
+
+/*
+  Diagonal 4:
+  Figma wrapper center = (1387.5, 557.5)
+  line length = 178.241
+  rotation = -46.36deg
+*/
+.line-4{
+    left:90.1652%;
+    top:27.6122%;
+
+    width:12.3778%;
+
+    transform:rotate(-46.36deg);
+}
+
+
+/* ---------------------------------------------------------
+   FEATURED COLLECTION CTA
+
+   Figma text x=169, y=1588
+   Figma line  x=48,  y=1599, w=105
+   --------------------------------------------------------- */
+
+.featured-cta{
+    position:absolute;
+
+    left:5%;
+    top:78.6528%;
+
+    display:inline-flex;
+    align-items:center;
+
+    gap:1.1111vw;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    z-index:3;
+}
+
+.featured-cta-line{
+    width:7.2917vw;
+    height:1px;
+
+    flex:0 0 auto;
+
+    background:#d9d9d9;
+}
+
+.featured-cta-text{
+    font-family:'Oxanium',sans-serif;
+    font-size:1.3889vw;
+    line-height:normal;
+
+    font-weight:600;
+
+    letter-spacing:.1806vw;
+    text-transform:uppercase;
+
+    white-space:nowrap;
+}
+
+.featured-cta svg{
+    width:1.1111vw;
+    height:1.1111vw;
+
+    flex:0 0 auto;
+
+    stroke:#ffffff;
+}
+
+
+/* =========================================================
+   INTERACTIVE INDEX — 1440 × 1934
+   ========================================================= */
+
+.interactive-index{
+    position:relative;
+
+    width:100%;
+    aspect-ratio:1440 / 1934;
+
+    min-height:0;
+    height:auto;
+
+    overflow:hidden;
+
+    background:#1c1c1c;
+}
+
+
+/* Figma image: x=47 y=967 w=969 h=594 */
+.index-feature-img{
+    position:absolute;
+
+    left:3.2639%;
+    top:50%;
+
+    width:67.2917%;
+    height:30.7135%;
+
+    object-fit:cover;
+
+    border-radius:0;
+}
+
+
+/* Whole square-menu coordinate plane */
+.index-container{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:3;
+
+    pointer-events:none;
+}
+
+#archive-menu{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+}
+
+
+/* Base square */
+.square{
+    position:absolute;
+
+    width:14.5139%;
+    aspect-ratio:1;
+
+    border:none;
+    border-radius:13px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:0;
+
+    font-family:'Krona One',sans-serif;
+    font-size:1.25vw;
+    letter-spacing:-.0125vw;
+
+    color:#e0e0e0;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    box-shadow:
+        inset -7px -7px 15px rgba(255,255,255,.1),
+        inset 7px 7px 23.5px rgba(4,4,4,.35);
+
+    pointer-events:auto;
+}
+
+
+/* Figma open-state positions */
+.view-more{
+    left:40.2083%;
+    top:7.9628%;
+
+    background:#636363;
+    color:#1c1c1c;
+
+    box-shadow:
+        7px 7px 21.1px rgba(0,0,0,.49),
+        inset -7px -7px 15px rgba(253,245,245,.35),
+        inset 7px 7px 23.5px rgba(0,0,0,.4);
+
+    z-index:4;
+}
+
+.archive{
+    left:51.0417%;
+    top:16.2875%;
+
+    background:#454545;
+
+    opacity:0;
+
+    transition:
+        transform .55s ease,
+        opacity .35s ease;
+
+    z-index:3;
+}
+
+.research{
+    left:61.4583%;
+    top:24.302%;
+
+    background:#2f2f2f;
+
+    opacity:0;
+
+    transition:
+        transform .55s ease,
+        opacity .35s ease;
+
+    z-index:2;
+}
+
+.observations{
+    left:72.0833%;
+    top:32.1096%;
+
+    background:#151515;
+
+    opacity:0;
+
+    transition:
+        transform .55s ease,
+        opacity .35s ease;
+
+    z-index:1;
+}
+
+
+/*
+  Closed state: all secondary items sit directly behind VIEW MORE.
+  This keeps the interaction while using the actual Figma positions
+  when opened.
+*/
+.archive,
+.research,
+.observations{
+    transform:translate(
+        calc(40.2083% - 51.0417%),
+        calc(7.9628% - 16.2875%)
+    );
+}
+
+
+/* Open = exact Figma diagonal */
+.index-container.open .archive{
+    opacity:1;
+    transform:none;
+}
+
+.index-container.open .research{
+    opacity:1;
+    transform:none;
+}
+
+.index-container.open .observations{
+    opacity:1;
+    transform:none;
+}
+
+
+/* Archive hover annotation */
+.annotation{
+    position:absolute;
+
+    left:63.5%;
+    top:20.5%;
+
+    opacity:0;
+
+    pointer-events:none;
+    white-space:nowrap;
+
+    transition:opacity .25s ease;
+}
+
+.annotation p{
+    margin:8px 0 0;
+
+    font-family:'Krona One',sans-serif;
+    font-size:.7639vw;
+
+    letter-spacing:.0694vw;
+
+    color:#d9d9d9;
+}
+
+.annotation .line{
+    width:11.8056vw;
+    height:1px;
+
+    background:#d9d9d9;
+
+    transform-origin:left center;
+    transform:rotate(30deg) scaleX(0);
+
+    transition:transform .3s ease;
+}
+
+.archive:hover + .annotation{
+    opacity:1;
+}
+
+.archive:hover + .annotation .line{
+    transform:rotate(30deg) scaleX(1);
+}
+
+
+/* =========================================================
+   END CREDITS — positioned inside the 1934px Figma frame
+   ========================================================= */
+
+.site-footer{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    font-family:'Oxanium',sans-serif;
+}
+
+.site-footer a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.footer-stats{
+    position:absolute;
+
+    left:10.8333%;
+    top:88.2802%;
+
+    width:24.2361%;
+
+    color:#c7b7b7;
+
+    font-size:.9722vw;
+    line-height:normal;
+
+    letter-spacing:.2431vw;
+}
+
+.footer-stats p{
+    margin:0;
+
+    white-space:pre;
+
+    font-family:'Oxanium',sans-serif;
+    font-weight:500;
+}
+
+.footer-contact{
+    position:absolute;
+
+    left:75%;
+    top:88.3144%;
+
+    color:#ffffff;
+
+    font-size:.9722vw;
+    line-height:normal;
+
+    letter-spacing:.2431vw;
+
+    text-align:left;
+}
+
+.footer-contact p{
+    margin:0 0 1.25vw;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width:900px){
+
+    .hero{
+        aspect-ratio:auto;
+        height:100vh;
+
+        background-size:cover;
+        background-position:center;
+    }
+
+    .hero-logo{
+        left:6%;
+        top:2.8vh;
+        width:clamp(28px,10vw,40px);
+    }
+
+    .hero-menu{
+        right:6%;
+        top:2.8vh;
+    }
+
+    .hero-menu a{
+        font-size:clamp(10px,2.6vw,12px);
+        letter-spacing:.04em;
+    }
+
+    #typewriter-header{
+        left:6%;
+        top:42%;
+        width:88%;
+    }
+
+    .typewriter-h1{
+        height:auto;
+        font-size:clamp(36px,10vw,72px);
+        line-height:.98;
+        letter-spacing:-.04em;
+
+        white-space:normal;
+    }
+
+    .typewriter-p{
+        height:auto;
+        margin-top:16px;
+        font-size:clamp(12px,3vw,16px);
+    }
+
+
+    /* Archive mobile */
+    .archive-intro{
+        aspect-ratio:auto;
+        min-height:auto;
+        height:auto;
+
+        padding:70px 6% 90px;
+
+        overflow:visible;
+    }
+
+    .archive-intro-top{
+        position:relative;
+        inset:auto;
+
+        width:100%;
+        height:auto;
+
+        display:flex;
+        flex-direction:column;
+        gap:30px;
+    }
+
+    .archive-text{
+        position:relative;
+        inset:auto;
+
+        width:100%;
+        height:auto;
+    }
+
+    .archive-text h2{
+        position:relative;
+        left:auto;
+        top:auto;
+
+        width:100%;
+
+        font-size:clamp(22px,6vw,34px);
+        line-height:1.02;
+    }
+
+    .archive-text p{
+        position:relative;
+        left:auto;
+        top:auto;
+
+        width:100%;
+
+        margin-top:28px;
+
+        font-size:12px;
+        line-height:1.75;
+        letter-spacing:0;
+    }
+
+    .archive-statue{
+        position:relative;
+
+        left:auto;
+        top:auto;
+
+        width:100%;
+        height:auto;
+        aspect-ratio:414 / 473;
+    }
+
+    .archive-lines{
+        display:none;
+    }
+
+    .archive-images{
+        position:relative;
+        inset:auto;
+
+        width:100%;
+        height:auto;
+
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:24px;
+
+        margin-top:60px;
+    }
+
+    .archive-image-frame{
+        position:relative;
+
+        left:auto !important;
+        top:auto !important;
+
+        width:100% !important;
+        height:auto !important;
+
+        aspect-ratio:318 / 482;
+    }
+
+    .archive-image-frame img{
+        inset:0 !important;
+
+        width:100% !important;
+        height:100% !important;
+
+        object-fit:cover;
+    }
+
+    .featured-cta{
+        position:relative;
+
+        left:auto;
+        top:auto;
+
+        margin-top:50px;
+
+        gap:12px;
+    }
+
+    .featured-cta-line{
+        width:42px;
+    }
+
+    .featured-cta-text{
+        font-size:11px;
+        letter-spacing:1.8px;
+    }
+
+    .featured-cta svg{
+        width:13px;
+        height:13px;
+    }
+
+
+    /* Index mobile */
+    .interactive-index{
+        aspect-ratio:auto;
+        height:auto;
+        min-height:1200px;
+
+        padding:60px 6% 140px;
+
+        overflow:hidden;
+    }
+
+    .index-feature-img{
+        position:relative;
+
+        left:auto;
+        top:auto;
+
+        width:100%;
+        height:auto;
+
+        aspect-ratio:969 / 594;
+
+        object-fit:cover;
+    }
+
+    .index-container{
+        position:relative;
+
+        inset:auto;
+
+        width:100%;
+        height:520px;
+
+        margin-top:70px;
+    }
+
+    #archive-menu{
+        position:absolute;
+        inset:0;
+    }
+
+    .square{
+        width:100px;
+        height:100px;
+
+        font-size:10px;
+    }
+
+    .view-more{
+        left:10%;
+        top:0;
+    }
+
+    .archive{
+        left:30%;
+        top:110px;
+
+        opacity:1;
+        transform:none;
+    }
+
+    .research{
+        left:50%;
+        top:220px;
+
+        opacity:1;
+        transform:none;
+    }
+
+    .observations{
+        left:70%;
+        top:330px;
+
+        opacity:1;
+        transform:none;
+    }
+
+    .annotation{
+        display:none;
+    }
+
+    .site-footer{
+        position:relative;
+        inset:auto;
+
+        width:100%;
+        height:auto;
+
+        margin-top:50px;
+    }
+
+    .footer-stats,
+    .footer-contact{
+        position:relative;
+
+        left:auto;
+        top:auto;
+
+        width:100%;
+
+        font-size:10px;
+        letter-spacing:1.5px;
+
+        text-align:left;
+    }
+
+    .footer-stats p{
+        white-space:normal;
+    }
+
+    .footer-contact{
+        margin-top:30px;
+    }
+}
+
+
+@media (max-width:420px){
+
+    .archive-images{
+        grid-template-columns:1fr;
+    }
+
+    .interactive-index{
+        min-height:1250px;
+    }
+
+    .square{
+        width:88px;
+        height:88px;
+    }
+
+    .view-more{left:5%;}
+    .archive{left:28%;}
+    .research{left:51%;}
+    .observations{left:74%;}
+}
